@@ -6,8 +6,12 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.6",
+    "@react-aria/listbox": "^3.4.2",
     "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react-aria": "^3.13.2",
+    "react-dom": "^17.0.0",
+    "react-stately": "^3.12.1"
   },
   "devDependencies": {
     "@types/react": "^17.0.38",

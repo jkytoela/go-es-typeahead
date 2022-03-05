@@ -20,6 +20,7 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
   ],
   rules: {
+    'indent': ['error', 2],
     '@typescript-eslint/quotes': [
       2,
       'single',
