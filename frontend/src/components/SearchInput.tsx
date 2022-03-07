@@ -8,9 +8,9 @@ import { Popover } from './Popover';
 
 export function SearchInput<T extends object>(props: ComboBoxProps<T>) {
   const state = useComboBoxState({ ...props });
-  const inputRef = React.useRef(null);
-  const listBoxRef = React.useRef(null);
-  const popoverRef = React.useRef(null);
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  const listBoxRef = React.useRef<HTMLUListElement>(null);
+  const popoverRef = React.useRef<HTMLDivElement>(null);
 
   const { inputProps, listBoxProps, labelProps } = useComboBox(
     {
@@ -19,7 +19,7 @@ export function SearchInput<T extends object>(props: ComboBoxProps<T>) {
       listBoxRef,
       popoverRef
     },
-    state
+    state,
   );
 
   React.useEffect(() => {

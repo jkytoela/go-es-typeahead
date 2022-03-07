@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"typeahead/helpers"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -46,6 +47,7 @@ func getSearchResults(searchString string) []string {
 
 func main() {
 	r := gin.Default()
+	r.Use(cors.Default())
 	r.GET("/search", func(c *gin.Context) {
 		queryStr := c.Query("query")
 		if len(queryStr) == 0 {
