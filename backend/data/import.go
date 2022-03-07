@@ -11,7 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/elastic/go-elasticsearch/v8"
+	"typeahead/helpers"
+
 	"github.com/elastic/go-elasticsearch/v8/esapi"
 	"github.com/elastic/go-elasticsearch/v8/esutil"
 )
@@ -48,23 +49,6 @@ func getWords() []string {
 	return words
 }
 
-func getESClient() *elasticsearch.Client {
-	es, err := elasticsearch.NewDefaultClient()
-	if err != nil {
-		log.Fatalf("Error creating the client: %s", err)
-	}
-
-	res, err := es.Info()
-	if err != nil {
-		log.Fatalf("Error getting response: %s", err)
-	}
-
-	log.Println(res)
-
-	defer res.Body.Close()
-	return es
-}
-
 const mapping = `
 {
 	"mappings": {
@@ -78,7 +62,7 @@ const mapping = `
 
 func main() {
 	// Create ES client
-	es := getESClient()
+	es := helpers.GetESClient()
 
 	ctx := context.Background()
 
